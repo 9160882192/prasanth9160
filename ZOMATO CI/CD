@@ -71,8 +71,8 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-creds') {
-                        sh "docker tag zomato-app varaprasad372/zomato-app:latest"
-                        sh "docker push varaprasad372/zomato-app:latest"
+                        sh "docker tag zomato-app prasanth916/zomato-app:latest"
+                        sh "docker push prasanth916/zomato-app:latest"
                     }
                 }
             }
@@ -80,7 +80,7 @@ pipeline {
 
         stage("Deploy to Container") {
             steps {
-                sh 'docker run -d --name zomato -p 3000:3000 varaprasad372/zomato-app:latest'
+                sh 'docker run -d --name zomato -p 3000:3000 prasanth916/zomato-app:latest'
             }
         }
     }
