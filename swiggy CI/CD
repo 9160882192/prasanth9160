@@ -19,7 +19,7 @@ pipeline {
 
         stage('Checkout from Git') {
             steps {
-                git 'https://github.com/prasad234567/My-DevOps-Project-Swiggy.git'
+                git 'https://github.com/9160882192/prasanth9160.git'
             }
         }
 
@@ -74,19 +74,19 @@ pipeline {
         stage('Build Docker') {
             steps {
                 sh 'docker build -t swiggy-app .'
-                sh 'docker tag swiggy-app akhil460/swiggy-app:latest'
+                sh 'docker tag swiggy-app prasanth916/swiggy-app:latest'
             }
         }
 
         stage('Push to DockerHub') {
             steps {
-                sh 'docker push akhil460/swiggy-app:latest'
+                sh 'docker push prasanth916/swiggy-app:latest'
             }
         }
 
         stage('Deploy to Container') {
             steps {
-                sh 'docker run -d --name swiggy-app -p 3000:3000 varaprasad372/swiggy-app:latest'
+                sh 'docker run -d --name swiggy-app -p 3000:3000 prasanth916/swiggy-app:latest'
             }
         }
     }
